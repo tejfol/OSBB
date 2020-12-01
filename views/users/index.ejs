@@ -1,6 +1,7 @@
-<h2>Search authors</h2>
+<h2>Users</h2>
 <form action="/users" method="GET">
-    <label for="">Name</label>
-    <button type="submit">Search</button>
+    <% users.forEach(user => { %>
+        <div><%= user.name %> </div>
+    <% }) %> 
 </form>
 <br>
