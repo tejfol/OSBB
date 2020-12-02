@@ -1,6 +1,9 @@
 const express = require('express')
 const Users = require('../models/users')
 const router = express.Router()
+const createStorage  = require('../middleware/storageMiddleware')
+
+const storageMiddleware = createStorage('')
 
 //All authors Route
 router.get('/', async (req, res) => {
@@ -12,8 +15,10 @@ router.get('/new', (req, res) => {
     res.render('users/new', {users: new Users()})
 })
 
-router.post('/', async (req, res) => {
+router.post('/', storageMiddleware, async (req, res) => {
     console.log(req.body);
+    const filedata = req.file
+    
     const data = await new Users({
         name: req.body.name,
         email: req.body.email,
@@ -26,7 +31,7 @@ router.post('/', async (req, res) => {
         adress: req.body.adress,
         benefits: req.body.benefits,
         role: req.body.role,
-        profilePhotoLocation: req.body.profilePhotoLocation
+        imgPath: filedata ? filedata.path : ''
     })
     try {
         const newUser = await data.save()

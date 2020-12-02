@@ -13,8 +13,13 @@
             <div><%= user.adress %> </div>
             <div><%= user.benefits %> </div>
             <div><%= user.role %> </div>
-            <div><%= user.profilePhotoLocation %> </div>
+            <% user.imgPath.forEach(img => { %>
+                <img class="avatarImg" src="<%= img %> " alt="">
+            <% }) %> 
+            
         </div>
     <% }) %> 
 </form>
 <br>
+
+
