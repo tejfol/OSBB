@@ -2,6 +2,11 @@
     font-family: 'Gotham Rounded';
     font-size: 20px;
     color: var(--color-text-light);
+    margin: 20px;
+}
+
+*{
+    padding: 2px;
 }
 
 
@@ -12,4 +17,19 @@
 .avatarImg{
     width:100px; 
     height:auto;
+}
+
+.topNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topNav li {
+    display: inline;
+    float: left;
+}
+
+.topNav a {
+    margin: 20px;
 }
