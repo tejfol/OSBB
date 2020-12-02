@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
@@ -20,9 +20,7 @@ const UserSchema = new mongoose.Schema({
     owner: {
         type: String
     },
-    receplents: [{
-        Name: String
-    }],
+    receplents: [String],
     bill: {
         type: Number
     },
@@ -44,8 +42,7 @@ const UserSchema = new mongoose.Schema({
     },
     profilePhotoLocation: {
         type: String
-    },
+    }
+});
 
-})
-
-module.exports = mongoose.model('Users', UserSchema)
+module.exports = mongoose.model('Users', userSchema)

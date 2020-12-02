@@ -1,7 +1,20 @@
 <h2>Users</h2>
 <form action="/users" method="GET">
     <% users.forEach(user => { %>
-        <div><%= user.name %> </div>
+        <div class="user_Frame"></div>
+            <div><%= user.name %> </div>
+            <div><%= user.email %> </div>
+            <div><%= user.number %> </div>
+            <div><%= user.encryptedPassword %> </div>
+            <div><%= user.owner %> </div>
+            <div><%= user.receplents %> </div>
+            <div><%= user.bill %> </div>
+            <div><%= user.area %> </div>
+            <div><%= user.adress %> </div>
+            <div><%= user.benefits %> </div>
+            <div><%= user.role %> </div>
+            <div><%= user.profilePhotoLocation %> </div>
+        </div>
     <% }) %> 
 </form>
 <br>

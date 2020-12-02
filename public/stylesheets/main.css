@@ -1,0 +1,10 @@
+:root {
+    font-family: 'Gotham Rounded';
+    font-size: 20px;
+    color: var(--color-text-light);
+}
+
+
+.user_Frame{
+    border: 2px solid black;
+}
