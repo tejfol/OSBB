@@ -43,7 +43,6 @@ const userSchema = new mongoose.Schema({
     imgPath: [{
         type: String,
         // required: true
-        unique: true
     }]
 });
 

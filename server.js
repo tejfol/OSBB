@@ -19,7 +19,7 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 app.use('/uploads', express.static('uploads'))
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
@@ -32,3 +32,4 @@ app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
 app.listen(process.env.PORT || 3000)
+console.log("http://localhost:3000");

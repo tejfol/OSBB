@@ -18,6 +18,7 @@ router.get('/new', (req, res) => {
 router.post('/', storageMiddleware, async (req, res) => {
     console.log(req.body);
     const filedata = req.file
+    console.log(filedata);
     
     const data = await new Users({
         name: req.body.name,
