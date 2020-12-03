@@ -1,28 +1,30 @@
-<label for="name">Name</label>
-<input type="text" name="name" <%= users.name %> >
-<label for="email">Email</label>
-<input type="email" name="email" <% users.email %> >
-<label for="number">Phone number</label>
-<input type="text" name="number" <% users.number %> >
-<label for="encryptedPassword">Password</label>
-<input type="password" name="encryptedPassword">
-<label for="owner">Owner</label>
-<input type="text" name="owner" <% users.owner %> >
-<label for="receplents">Receplents</label>
-<input type="text" name="receplents" <% users.receplents %> >
-<label for="bill">Bill</label>
-<input type="number" name="bill" <% users.bill %> >
-<label for="area">Area</label>
-<input type="text" name="area" <% users.area %> >
-<label for="adress">Adress</label>
-<input type="text" name="adress" <% users.adress %> >
-<label for="benefits">Benefits</label>
-<input type="text" name="benefits" <% users.benefits %> >
-<label for="role">Role</label>
-<select name="role" >
-    <option value="Админ">Админ</option>
-    <option value="Житель">Житель</option>
-    <option value="Бухалтер">Бухалтер</option>
-</select>
-<label for="file">Avatar</label>
-<input type="file"  name="file">
+<div class="register_form_field">
+    <label for="name">Name</label>
+    <input type="text" name="name" required <%= users.name %> >
+    <label for="email">Email</label>
+    <input type="email" name="email" required <% users.email %> >
+    <label for="number">Phone number</label>
+    <input type="text" name="number" required <% users.number %> >
+    <label for="encryptedPassword">Password</label>
+    <input type="password" name="encryptedPassword" required>
+    <label for="owner">Owner</label>
+    <input type="text" name="owner" required <% users.owner %> >
+    <label for="receplents">Receplents</label>
+    <input type="text" name="receplents" required <% users.receplents %> >
+    <label for="bill">Bill</label>
+    <input type="number" name="bill" required <% users.bill %> >
+    <label for="area">Area</label>
+    <input type="text" name="area" required <% users.area %> >
+    <label for="adress">Adress</label>
+    <input type="text" name="adress" required <% users.adress %> >
+    <label for="benefits">Benefits</label>
+    <input type="text" name="benefits" required <% users.benefits %> >
+    <label for="role">Role</label>
+    <select name="role" >
+        <option value="Админ">Админ</option>
+        <option value="Житель">Житель</option>
+        <option value="Бухалтер">Бухалтер</option>
+    </select>
+    <label for="file">Avatar</label>
+    <input class="fileContainer" type="file"  name="file">
+</div>

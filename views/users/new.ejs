@@ -1,6 +1,8 @@
-<h2>New User</h2>
-<form action="/users" enctype="multipart/form-data" method="POST">
+<form  action="/users" enctype="multipart/form-data" method="POST">
+    <h2>Register a new user</h2>
+    <br>
     <%- include('_form_fields') %> 
-    <a href="/users">Cancel</a>
-    <button type="submit">Create</button>
+    <br>
+    <button class="btn-submit" type="submit">Create</button>
+    <a class="btn-cancel" href="/users">Cancel</a>
 </form>

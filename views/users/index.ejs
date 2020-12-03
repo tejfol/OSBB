@@ -1,24 +1,27 @@
-<h2>Users</h2>
 <form action="/users" method="GET">
-    <a href="/users/new">Add new User</a>
+    <h2>Users</h2>
+    <a class="btn-submit2" href="/users/new">Add new User</a>
+    <div>
+    <br>
     <% users.forEach(user => { %>
         <div class="user_Frame">
-            <div><%= user.name %> </div>
-            <div><%= user.email %> </div>
-            <div><%= user.number %> </div>
-            <div><%= user.encryptedPassword %> </div>
-            <div><%= user.owner %> </div>
-            <div><%= user.receplents %> </div>
-            <div><%= user.bill %> </div>
-            <div><%= user.area %> </div>
-            <div><%= user.adress %> </div>
-            <div><%= user.benefits %> </div>
-            <div><%= user.role %> </div>
+            <div>Name: <%= user.name %> </div>
+            <div>Email: <%= user.email %> </div>
+            <div>Phone Number: <%= user.number %> </div>
+            <div>Owner: <%= user.owner %> </div>
+            <div>Receplents: <%= user.receplents %> </div>
+            <div>Bill: <%= user.bill %> </div>
+            <div>Area: <%= user.area %> </div>
+            <div>Adress: <%= user.adress %> </div>
+            <div>Benefits: <%= user.benefits %> </div>
+            <div>Role: <%= user.role %> </div>
             <% user.imgPath.forEach(img => { %>
                 <img class="avatarImg" src="<%= img %> " alt="">
             <% }) %> 
         </div>
-    <% }) %> 
+        <% }) %> 
+    </div>
+    
 </form>
 <br>
 

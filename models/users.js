@@ -3,19 +3,19 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        // require: true
+        require: true
     },
     email: {
         type: String,
-        // required: true
+        required: true
     },
     number: {
         type: String,
-        // require: true
+        require: true
     },
     encryptedPassword: {
         type: String,
-        // required: true
+        required: true
     },
     owner: {
         type: String
@@ -26,11 +26,11 @@ const userSchema = new mongoose.Schema({
     },
     area: {
         type: String,
-        // required: true
+        required: true
     },
     adress: {
         type: String,
-        // required: true
+        required: true
     },
     benefits: {
         type: String
@@ -38,11 +38,11 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: ['Админ', 'Житель', 'Бухалтер'],
-        // required: true
+        required: true
     },
     imgPath: [{
         type: String,
-        // required: true
+        required: true
     }]
 });
 
