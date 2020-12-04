@@ -43,7 +43,11 @@ const userSchema = new mongoose.Schema({
     imgPath: [{
         type: String,
         required: true
-    }]
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('Users', userSchema)

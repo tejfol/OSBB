@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const slidersRouter = require('./routes/sliderImages')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -28,8 +29,9 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 
-app.use('/', indexRouter)
+app.use('/admin', indexRouter)
 app.use('/users', usersRouter)
+app.use('/sliderimages', slidersRouter)
 
 app.listen(process.env.PORT || 3000)
 console.log("http://localhost:3000");

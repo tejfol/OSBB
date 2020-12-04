@@ -5,7 +5,7 @@ const createStorage  = require('../middleware/storageMiddleware')
 
 const storageMiddleware = createStorage('')
 
-//All authors Route
+//All users Route
 router.get('/', async (req, res) => {
    const data = await Users.find({});
    res.render('users/index', {users:data})
@@ -15,7 +15,7 @@ router.get('/new', (req, res) => {
     res.render('users/new', {users: new Users()})
 })
 
-router.post('/', storageMiddleware, async (req, res) => {
+router.post('/admin/', storageMiddleware, async (req, res) => {
     console.log(req.body);
     const filedata = req.file
     console.log(filedata);
