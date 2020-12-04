@@ -15,7 +15,7 @@ router.get('/new', (req, res) => {
     res.render('users/new', {users: new Users()})
 })
 
-router.post('/admin/', storageMiddleware, async (req, res) => {
+router.post('/', storageMiddleware, async (req, res) => {
     console.log(req.body);
     const filedata = req.file
     console.log(filedata);
@@ -50,6 +50,12 @@ router.post('/admin/', storageMiddleware, async (req, res) => {
  router.get('/:id', async (req, res) => {
      const data = await Users.findById(req.params.id)
     res.render('users/show', {user: data})
+})
+
+router.get('/:id/del', async(req,res) => {
+    const data = await Users.findById(req.params.id)
+    await data.remove()
+    res.redirect('/users')
 })
 
 

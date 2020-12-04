@@ -1,29 +1,18 @@
 <form action="/users" method="GET">
-    <h2>Users</h2>
-    <a class="btn-submit2" href="/users/new">Add new User</a>
     <div>
-        <br>
-        <% users.forEach(user => { %>
-            <div class="user_Frame">
-                <div><a href="/users/<%= user.id %> "><%= user.name %> </a> </div>
-                 <!-- <div>Name: <%= user.name %> </div>
-                <div>Email: <%= user.email %> </div>
-                <div>Phone Number: <%= user.number %> </div>
-                <div>Owner: <%= user.owner %> </div>
-                <div>Receplents: <%= user.receplents %> </div>
-                <div>Bill: <%= user.bill %> </div>
-                <div>Area: <%= user.area %> </div>
-                <div>Adress: <%= user.adress %> </div>
-                <div>Benefits: <%= user.benefits %> </div>
-                <div>Role: <%= user.role %> </div>
-                <% user.imgPath.forEach(img => { %>
-                    <img class="avatarImg" src="<%= img %> " alt="">
-                    <p><%= img %> </p>
-                <% }) %>   -->
-            </div>
-        <% }) %> 
+        <h2>Users</h2>
+        <a class="btn-submit2" href="/users/new">Add new User</a>
+        <div>
+            <br>
+            <% users.forEach(user => { %>
+                <div class="user_Frame">
+                    <div><a href="/users/<%= user.id %> "><%= user.name %> </a> 
+                    <a  class="btn-submit" href="/users/<%= user.id %>/del">Delete</a>
+                    </div>
+                </div>
+            <% }) %> 
+        </div>
     </div>
-    
 </form>
 <br>
 

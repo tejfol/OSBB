@@ -1,17 +1,18 @@
-<form action="/">
-
-    <div>Name: <%= user.name %> </div>
-    <div>Email: <%= user.email %> </div>
-    <div>Phone Number: <%= user.number %> </div>
-    <div>Owner: <%= user.owner %> </div>
-    <div>Receplents: <%= user.receplents %> </div>
-    <div>Bill: <%= user.bill %> </div>
-    <div>Area: <%= user.area %> </div>
-    <div>Adress: <%= user.adress %> </div>
-    <div>Benefits: <%= user.benefits %> </div>
-    <div>Role: <%= user.role %> </div>
-    <% user.imgPath.forEach(img => { %>
-        <img class="avatarImg" src="../<%= img %> " alt="">
-    <% }) %> 
-     
+<form >
+    <br>
+    <div>
+        <div>Name: <%= user.name %> </div>
+        <div>Email: <%= user.email %> </div>
+        <div>Phone Number: <%= user.number %> </div>
+        <div>Owner: <%= user.owner %> </div>
+        <div>Receplents: <%= user.receplents %> </div>
+        <div>Bill: <%= user.bill %> </div>
+        <div>Area: <%= user.area %> </div>
+        <div>Adress: <%= user.adress %> </div>
+        <div>Benefits: <%= user.benefits %> </div>
+        <div>Role: <%= user.role %> </div>
+        <% user.imgPath.forEach(img => { %>
+            <img class="avatarImg" src="../<%= img %> " alt="">
+        <% }) %> 
+    </div>
 </form>
