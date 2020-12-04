@@ -1,5 +1,5 @@
 const express = require('express')
-const Users = require('../models/users')
+const {Users, passHash} = require('../models/users')
 const router = express.Router()
 const createStorage  = require('../middleware/storageMiddleware')
 
@@ -19,12 +19,12 @@ router.post('/', storageMiddleware, async (req, res) => {
     console.log(req.body);
     const filedata = req.file
     console.log(filedata);
-    
+    let pass = passHash(req.body.password)
     const data = await new Users({
         name: req.body.name,
         email: req.body.email,
         number: req.body.number,
-        encryptedPassword: req.body.encryptedPassword,
+        password: pass,
         owner: req.body.owner,
         receplents: req.body.receplents,
         bill: req.body.bill,

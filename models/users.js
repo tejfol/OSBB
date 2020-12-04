@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -13,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    encryptedPassword: {
+    password: {
         type: String,
         required: true
     },
@@ -50,4 +51,18 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Users', userSchema)
+let passHash = generatePasswordHash = (password) => {
+    const saltRounds = 10;
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(password, salt);
+    return hash;
+};
+
+let passValidation = validatePassword = (password, hashedPassword) => {
+    let res = bcrypt.compareSync(password, hashedPassword);
+    return res;
+};
+
+let Users = mongoose.model('Users', userSchema)
+
+module.exports = {Users, passHash, passValidation};
