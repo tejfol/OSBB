@@ -1,17 +1,16 @@
 <form action="/users" method="GET">
     <div>
         <h2>Users</h2>
-        <a class="btn-submit2" href="/users/new">Add new User</a>
-        <div>
-            <br>
+        <a class="btn btn-dark" href="/users/new">Add new User</a>
+        <ul class="list-group">
             <% users.forEach(user => { %>
                 <div class="user_Frame">
-                    <div><a href="/users/<%= user.id %> "><%= user.name %> </a> 
-                    <a  class="btn-submit" href="/users/<%= user.id %>/del">Delete</a>
+                    <div class="list-group-item"><a href="/users/<%= user.id %> "><%= user.name %> </a> 
+                    <a  class="btn btn-danger float-right" href="/users/<%= user.id %>/del">Delete</a>
                     </div>
                 </div>
             <% }) %> 
-        </div>
+        </ul>
     </div>
 </form>
 <br>
