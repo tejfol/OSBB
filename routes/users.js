@@ -47,5 +47,10 @@ router.post('/admin/', storageMiddleware, async (req, res) => {
     }
  })
 
+ router.get('/:id', async (req, res) => {
+     const data = await Users.findById(req.params.id)
+    res.render('users/show', {user: data})
+})
+
 
 module.exports = router
