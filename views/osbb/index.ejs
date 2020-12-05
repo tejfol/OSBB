@@ -1,0 +1,18 @@
+<form action="/osbb" method="GET">
+    <div>
+        <h2>ОСББ</h2>
+        <a class="btn btn-dark" href="/osbb/new">Add new User</a>
+        <ul class="list-group">
+            <% osbb.forEach(osb => { %>
+                <div class="user_Frame">
+                    <div class="list-group-item"><a href="/osbb/<%= osb.id %> "><%= osb.pib %> </a> 
+                    <a  class="btn btn-danger float-right" href="/osbb/<%= osb.id %>/del">Delete</a>
+                    </div>
+                </div>
+            <% }) %> 
+        </ul>
+    </div>
+</form>
+<br>
+
+

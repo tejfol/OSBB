@@ -11,6 +11,6 @@ const osbbSchema = new mongoose.Schema({
     apartments:{Number}
 });
 
-let OSBB = mongoose.model('OSBB', osbbSchema)
+let Osbb = mongoose.model('Osbb', osbbSchema)
 
-module.exports = OSBB;
+module.exports = Osbb;

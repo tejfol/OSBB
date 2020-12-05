@@ -13,6 +13,7 @@ const passport = require('passport');
 
 
 const indexRouter = require('./routes/index')
+const osbbRouter = require('./routes/osbb')
 const residentsRouter = require('./routes/residents')
 const newsRouter = require('./routes/news')
 const contactsRouter = require('./routes/contacts')
@@ -53,6 +54,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 app.use('/admin', indexRouter)
+app.use('/osbb', osbbRouter)
 app.use('/residents', residentsRouter)
 app.use('/news', newsRouter)
 app.use('/contacts', contactsRouter)

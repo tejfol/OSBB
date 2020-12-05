@@ -3,6 +3,7 @@ const Residents = require('../models/residents')
 const router = express.Router()
 const createStorage  = require('../middleware/storageMiddleware')
 
+
 const storageMiddleware = createStorage('')
 
 router.get('/', async (req, res) => {
@@ -10,7 +11,7 @@ router.get('/', async (req, res) => {
    res.render('residents/index', {residents:data})
 })
 
-router.get('/new', (req, res) => {
+router.get('/new', async (req, res) => {
     res.render('residents/new', {residents: new Residents()})
 })
 
@@ -39,8 +40,8 @@ router.post('/', storageMiddleware, async (req, res) => {
     } catch (err){
         console.log(err);
         res.render('residents/new', {
-            users: data,
-            errorMessage: 'Error creating user'
+            residents: data,
+            errorMessage: 'Error creating resident'
         })
     }
  })
