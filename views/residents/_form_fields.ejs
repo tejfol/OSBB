@@ -1,0 +1,36 @@
+<div>
+    <div class="form-group">
+        <label for="pib">ПІБ</label>
+        <input class="form-control" type="text" name="pib" required <%= residents.pib %>>
+    </div>
+    <div class="form-group">
+        <label for="birthday">Дата народження</label>
+        <input class="form-control" type="date" name="birthday" required <% residents.birthday %>>
+    </div>
+    <div class="form-group">
+        <label for="idc">Ідентифікаційний код</label>
+        <input class="form-control" type="number" name="idc" required <% residents.idc %>>
+    </div>
+    <div class="form-group">
+        <label for="birthPlace">Місце народження</label>
+        <input class="form-control" type="text" name="birthPlace" required <% residents.birthPlace %>>
+    </div>
+
+    <div class="form-group">
+        <label for="phoneNumber">Телефон</label>
+        <input class="form-control" type="text" name="phoneNumber" required <% residents.phoneNumber %>>
+    </div>
+    <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" name="role">
+            <option value="Админ">Админ</option>
+            <option value="Житель">Житель</option>
+            <option value="Бухалтер">Бухалтер</option>
+        </select>
+    </div>
+        <div class="form-group">
+            <label for="files">Паспорт</label>
+            <input type="file" name="files" multiple>
+        </div>
+    </div>
+</div>

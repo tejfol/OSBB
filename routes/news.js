@@ -1,5 +1,5 @@
 const express = require('express')
-const SliderImages = require('../models/sliderImages')
+const SliderImages = require('../models/news')
 const router = express.Router()
 const createStorage  = require('../middleware/storageMiddleware')
 
@@ -21,15 +21,32 @@ router.post('/', storageMiddleware, async (req, res) => {
         myfiles.push(file.path)
     });
 
-
     const data = await new SliderImages({
         title: req.body.title,
         subscription: req.body.subscription,
         imgPath: myfiles
     })
-    const newSliderShow = await data.save();
+    try {
+        const newSliderShow = await data.save();
+        res.redirect('sliderimages')
+    } catch (error) {
+        console.log(error);
+        res.render('sliderImages/new', {
+            sliders: data,
+            errorMessage: 'Error creating sliderShow'
+        })
+    }
+})
 
-    res.render('sliderImages/index')
+router.get('/:id', async (req, res) => {
+    const data = await SliderImages.findById(req.params.id)
+   res.render('sliderImages/show', {slider: data})
+})
+
+router.get('/:id/del', async(req,res) => {
+    const data = await SliderImages.findById(req.params.id)
+    await data.remove()
+    res.redirect('/sliderimages')
 })
 
 module.exports = router

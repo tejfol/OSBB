@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center">
+    <div class="card mb-3 " style="max-width: 560px;">
+        <div class="row no-gutters">
+            <div class="col-md-4 justify-content-center">
+                <% slider.imgPath.forEach(img => { %>
+                <img class="avatarImg" width="200px" height="auto" src="../<%= img %> " alt="">
+                <% }) %>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Title: <%= slider.title %></h5>
+                    <div>Subscription: <%= slider.subscription %> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

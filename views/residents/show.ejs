@@ -1,0 +1,23 @@
+<form>
+  <div class="d-flex justify-content-center">
+    <div class="card mb-3 " style="max-width: 560px;">
+        <div class="row no-gutters">
+          <div class="col-md-4 justify-content-center">
+            <% residents.imgPath.forEach(img => { %>
+                <img class="avatarImg" width="200px" height="auto" src="../<%= img %> " alt="">
+            <% }) %> 
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">ПІБ: <%= residents.pib %></h5>
+            <div>Дата народження: <%= residents.birthday %> </div>
+            <div>Ідентифікаційний код: <%= residents.idc %> </div>
+            <div>Місце народження: <%= residents.birthPlace %> </div>
+            <div>Телефон: <%= residents.phoneNumber %> </div>
+            <div>Пароль: <%= residents.password %> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>

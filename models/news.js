@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const SliderImagesSchema = new mongoose.Schema({
+const newsSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -12,4 +12,6 @@ const SliderImagesSchema = new mongoose.Schema({
     
 });
 
-module.exports = mongoose.model('SliderImages', SliderImagesSchema)
+const News = mongoose.model('News', newsSchema)
+
+module.exports = News;

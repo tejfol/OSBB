@@ -13,8 +13,9 @@ const passport = require('passport');
 
 
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
-const slidersRouter = require('./routes/sliderImages')
+const residentsRouter = require('./routes/residents')
+const newsRouter = require('./routes/news')
+const contactsRouter = require('./routes/contacts')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -52,8 +53,9 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 app.use('/admin', indexRouter)
-app.use('/users', usersRouter)
-app.use('/sliderimages', slidersRouter)
+app.use('/residents', residentsRouter)
+app.use('/news', newsRouter)
+app.use('/contacts', contactsRouter)
 
 app.listen(process.env.PORT || 3000)
 console.log("http://localhost:3000");
