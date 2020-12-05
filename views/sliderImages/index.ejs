@@ -1,8 +1,15 @@
 <form action="/sliderimages" method="GET">
     <h2>Slider Images Homepage</h2>
-    <a class="btn-submit2" href="/sliderimages/new">Add new Slider</a>
+    <a class="btn btn-dark" href="/sliderimages/new">Add new SliderShow</a>
     <div>
-        <br>
+        <% sliders.forEach(slider => { %>
+            <div class="user_Frame">
+                <div class="list-group-item"><a href="/sliderimages/<%= slider.id %> "><%= slider.title %> </a> 
+                <a  class="btn btn-danger float-right" href="/sliderimages/<%= slider.id %>/del">Delete</a>
+                </div>
+            </div>
+        <% }) %> 
+
     </div>
     
 </form>

@@ -42,8 +42,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     imgPath: [{
-        type: String,
-        required: true
+        type: String
     }],
     date: {
         type: Date,

@@ -16,9 +16,8 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', storageMiddleware, async (req, res) => {
-    console.log(req.body);
     const filedata = req.file
-    console.log(filedata);
+    console.log(req.files);
     let pass = passHash(req.body.password)
     const data = await new Users({
         name: req.body.name,

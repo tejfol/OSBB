@@ -18,7 +18,7 @@ const initStorage = (storageName = '') => {
 }
 
 const createStorage = (storageName, fieldName = 'file') => {
-  return initStorage(storageName).single(fieldName)
+  return initStorage(storageName).any(fieldName)
 }
 
 module.exports = createStorage

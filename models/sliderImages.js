@@ -5,13 +5,10 @@ const SliderImagesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    subscription: [{
+    subscription: {
         type: String,
-    }],
-    imgPath: [{
-        type: String,
-        required: true
-    }],
+    },
+    imgPath: [String],
     
 });
 
