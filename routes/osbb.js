@@ -14,7 +14,7 @@ router.get('/new', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const data = await new Osbb({
-        name: req.body.name,
+        osbbname: req.body.osbbname,
         adress: req.body.adress,
         edrpoy: req.body.edrpoy,
         bank: req.body.bank,
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     } catch (err){
         console.log(err);
         res.render('osbb/new', {
-            residents: data,
+            osbb: data,
             errorMessage: 'Error creating OSBB'
         })
     }

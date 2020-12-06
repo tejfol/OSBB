@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const apartmentSchema = new mongoose.Schema({
-    owner:{String},
-    accountNumber:{Number},
-    area:{String},
-    adress:{String},
-    phoneNumber:{String},
+    owner:{type:String},
+    accountNumber:{type:Number},
+    area:{type:String},
+    adress:{type:String},
+    phoneNumber:{type:String},
     services:[String],
     residents:[String]
 })

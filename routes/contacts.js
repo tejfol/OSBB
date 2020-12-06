@@ -1,20 +1,20 @@
 const express = require('express')
-const Contact = require('../models/news')
+const Contacts = require('../models/contacts')
 const router = express.Router()
 
 router.get('/', async(req, res) => {
-    const data = await Contact.find({});
+    const data = await Contacts.find({});
     res.render('contacts/index', {contacts: data});
 })
 
 router.get('/new', (req, res) => {
-    res.render('contacts/new', {sliders: new Contact()})
+    res.render('contacts/new', {contacts: new Contacts()})
 })
 
 router.post('/', async (req, res) => {
-    const data = await new Contact({
+    const data = await new Contacts({
         titul: req.body.titul,
-        name: req.body.subscription,
+        name: req.body.name,
         phoneNumber: req.body.phoneNumber
     })
     try {
@@ -23,19 +23,19 @@ router.post('/', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.render('contacts/new', {
-            sliders: data,
-            errorMessage: 'Error creating sliderShow'
+            contacts: data,
+            errorMessage: 'Error creating Contact'
         })
     }
 })
 
 router.get('/:id', async (req, res) => {
-    const data = await Contact.findById(req.params.id)
-   res.render('contacts/show', {contact: data})
+    const data = await Contacts.findById(req.params.id)
+   res.render('contacts/show', {contacts: data})
 })
 
 router.get('/:id/del', async(req,res) => {
-    const data = await Contact.findById(req.params.id)
+    const data = await Contacts.findById(req.params.id)
     await data.remove()
     res.redirect('/contacts')
 })

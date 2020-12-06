@@ -1,0 +1,30 @@
+<form action="/announcements" method="GET">
+    <h2>Управління Оголошеннями</h2>
+    <a class="btn btn-dark" href="/announcements/new">Створити оголошення</a>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Назва</th>
+                <th scope="col">Текст</th>
+                <th scope="col">Дата</th>
+                <th></th>
+                </tr>
+            </thead>
+        <% announcements.forEach(announcement => { %>
+            <tbody>
+                <td><%= announcement.title %></td>
+                <td><%- announcement.text %></td>
+                <td><%= announcement.date %></td>
+                <td><a class="btn btn-secondary" href="/announcements/<%= announcement.id %> ">Show</a>
+                <a  class="btn btn-danger float-right" href="/announcements/<%= announcement.id %>/del">Delete</a></td>
+                </div>
+        <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    
+</form>
+<br>
+
+

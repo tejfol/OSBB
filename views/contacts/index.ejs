@@ -1,0 +1,31 @@
+<form action="/contacts" method="GET">
+    <h2>Управління новинами</h2>
+    <a class="btn btn-dark" href="/contacts/new">Створити новину</a>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                <th></th>
+                <th scope="col">Контакт</th>
+                <th scope="col">Телефон</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+        <% contacts.forEach(contact => { %>
+            <tbody>
+                <td><%= contact.titul %></td>
+                <td><%= contact.name %></td>
+                <td><%= contact.phoneNumber %> </td>
+                <td><a class="btn btn-secondary" href="/contacts/<%= contact.id %> ">Show</a></td>
+                <td><a  class="btn btn-danger float-right" href="/contacts/<%= contact.id %>/del">Delete</a></td>
+                </div>
+        <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    
+</form>
+<br>
+
+

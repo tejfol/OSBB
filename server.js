@@ -17,6 +17,7 @@ const osbbRouter = require('./routes/osbb')
 const residentsRouter = require('./routes/residents')
 const newsRouter = require('./routes/news')
 const contactsRouter = require('./routes/contacts')
+const announcementsRouter = require('./routes/announcements')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -58,6 +59,7 @@ app.use('/osbb', osbbRouter)
 app.use('/residents', residentsRouter)
 app.use('/news', newsRouter)
 app.use('/contacts', contactsRouter)
+app.use('/announcements', announcementsRouter)
 
 app.listen(process.env.PORT || 3000)
 console.log("http://localhost:3000");

@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const osbbSchema = new mongoose.Schema({
-    name:{String},
-    adress:{String},
-    edrpoy:{Number},
-    bank:{String},
-    mfo:{Number},
-    accountnumber:{Number},
-    iban:{String},
-    apartments:{Number}
+    osbbname:{type:String},
+    adress:{type:String},
+    edrpoy:{type:Number},
+    bank:{type:String},
+    mfo:{type:Number},
+    accountnumber:{type:Number},
+    iban:{type:String},
+    apartments:{type:Number}
 });
 
 let Osbb = mongoose.model('Osbb', osbbSchema)
