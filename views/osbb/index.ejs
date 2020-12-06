@@ -4,7 +4,7 @@
         <a class="btn btn-dark" href="/osbb/new">Add new User</a>
         <ul class="list-group">
             <% osbb.forEach(osb => { %>
-                <div class="user_Frame">
+                <div>
                     <div class="list-group-item"><a href="/osbb/<%= osb.id %> "><%= osb.pib %> </a> 
                     <a  class="btn btn-danger float-right" href="/osbb/<%= osb.id %>/del">Delete</a>
                     </div>

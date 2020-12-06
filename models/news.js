@@ -6,10 +6,13 @@ const newsSchema = new mongoose.Schema({
         required: true
     },
     subscription: {
-        type: String,
+        type: String
     },
     imgPath: [String],
-    
+    date: {
+        type: Date,
+        default: () => Date.now()
+    }
 });
 
 const News = mongoose.model('News', newsSchema)

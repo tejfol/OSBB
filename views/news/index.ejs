@@ -1,15 +1,30 @@
-<form action="/sliderimages" method="GET">
-    <h2>Slider Images Homepage</h2>
-    <a class="btn btn-dark" href="/sliderimages/new">Add new SliderShow</a>
+<form action="/news" method="GET">
+    <h2>Управління новинами</h2>
+    <a class="btn btn-dark" href="/news/new">Створити новину</a>
     <div>
-        <% sliders.forEach(slider => { %>
-            <div class="user_Frame">
-                <div class="list-group-item"><a href="/sliderimages/<%= slider.id %> "><%= slider.title %> </a> 
-                <a  class="btn btn-danger float-right" href="/sliderimages/<%= slider.id %>/del">Delete</a>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Назва</th>
+                <th scope="col">Текст</th>
+                <th scope="col">Зображення</th>
+                <th scope="col">Дата</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+        <% myNews.forEach(News => { %>
+            <tbody>
+                <th><%= News.title %> </th>
+                <th><p><%- News.subscription %></p></th>
+                <th><img style="width: 50px;" src="<%= News.imgPath %>" alt=""></th>
+                <th><%= News.date %> </th>
+                <th><a class="btn btn-secondary" href="/news/<%= News.id %> ">Show</a></th>
+                <th><a  class="btn btn-danger float-right" href="/news/<%= News.id %>/del">Delete</a></th>
                 </div>
-            </div>
         <% }) %> 
-
+            </tbody>
+        </table>
     </div>
     
 </form>

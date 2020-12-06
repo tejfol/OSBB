@@ -1,13 +1,13 @@
 
     <div class="form-group">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" required <%= sliders.title %>>
+        <label for="title">Заголовок</label>
+        <input class="form-control" type="text" name="title" required <%= myNews.title %>>
     </div>
     <div class="form-group">
-        <label for="subscription">Subscription</label>
-        <textarea class="form-control" type="textarea" name="subscription" required <% sliders.subscription %>></textarea>
+        <label for="subscription">Текст новини</label>
+        <textarea class="form-control" id="tinymce" type="textarea" name="subscription" required <% myNews.subscription %>></textarea>
     </div>
     <div class="form-group">
-        <label for="files">Images</label>
+        <label for="files">Картинки</label>
         <input type="file" name="files" multiple>
     </div>
