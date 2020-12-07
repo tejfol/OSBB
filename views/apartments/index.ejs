@@ -1,0 +1,50 @@
+<form action="/apartment" method="GET">
+    <h2>Квартири</h2>
+    <a class="btn btn-dark" href="/apartments/new">Добавити квартиру</a>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Власник</th>
+                    <th scope="col">Номер рахунку</th>
+                    <th scope="col">Площа</th>
+                    <th scope="col">Адреса</th>
+                    <th scope="col">Пільги</th>
+                    <th scope="col">Номер телефону</th>
+                    <th scope="col">Послуги</th>
+                    <th scope="col">Зареєстровані</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+        <% apartments.forEach(apa => { %>
+            <tbody>
+                <td><%= apa.owner %></td>
+                <td><p><%- apa.accountNumber %></p></td>
+                <td><%= apa.area %></td>
+                <td><%= apa.adress %></td>
+                <td><%= apa.phoneNumber %></td>
+                <td><% apa.benefits.forEach(benef => {%>
+                    <%= benef %> <br>
+                <%}) %></td>
+                <td></td>
+                
+                <td><% apa.services.forEach(serv => {%>
+                        <%= serv %> <br>
+                    <%}) %></td>
+                <td></td>
+                <td><% apa.residents.forEach(res => {%>
+                    <%= res.name %> <br>
+                <%}) %></td>
+                <td><a class="btn btn-secondary" href="/apartments/<%= apa.id %>/edit ">Edit</a></td>
+                <td><a  class="btn btn-danger float-right" href="/apartments/<%= apa.id %>/del">Delete</a></td>
+                </div>
+        <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    
+</form>
+<br>
+
+

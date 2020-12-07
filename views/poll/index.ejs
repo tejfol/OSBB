@@ -1,5 +1,5 @@
 <form action="/poll" method="GET">
-    <h2>Управління Оголошеннями</h2>
+    <h2>Управління Опитуванням</h2>
     <a class="btn btn-dark" href="/poll/new">Створити оголошення</a>
     <div>
         <table class="table">
@@ -21,7 +21,7 @@
                 <td><% pol.votingOptions.forEach(voteVar => {%>
                         <%= voteVar %> <br>
                     <%}) %></td>
-                <td><a class="btn btn-secondary" href="/poll/<%= pol.id %> ">Show</a></td>
+                <td><a class="btn btn-secondary" href="/poll/<%= pol.id %>/edit ">Edit</a></td>
                 <td><a  class="btn btn-danger float-right" href="/poll/<%= pol.id %>/del">Delete</a></td>
                 </div>
         <% }) %> 

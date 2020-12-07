@@ -5,27 +5,25 @@
         <table class="table">
             <thead>
                 <tr>
-                <th></th>
-                <th scope="col">Контакт</th>
-                <th scope="col">Телефон</th>
-                <th></th>
-                <th></th>
+                    <th></th>
+                    <th scope="col">Контакт</th>
+                    <th scope="col">Телефон</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
-        <% contacts.forEach(contact => { %>
+            <% contacts.forEach(contact => { %>
             <tbody>
                 <td><%= contact.titul %></td>
                 <td><%= contact.name %></td>
                 <td><%= contact.phoneNumber %> </td>
-                <td><a class="btn btn-secondary" href="/contacts/<%= contact.id %> ">Update</a></td>
-                <td><a  class="btn btn-danger float-right" href="/contacts/<%= contact.id %>/del">Delete</a></td>
-                </div>
-        <% }) %> 
-            </tbody>
-        </table>
+                <td><a class="btn btn-secondary float-right" href="/contacts/<%= contact.id %>">Update</a></td>
+                <td><a class="btn btn-danger float-left" href="/contacts/<%= contact.id %>/del">Delete</a></td>
     </div>
-    
+    <% }) %>
+    </tbody>
+    </table>
+    </div>
+
 </form>
 <br>
-
-

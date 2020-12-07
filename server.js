@@ -20,6 +20,7 @@ const contactsRouter = require('./routes/contacts')
 const announcementsRouter = require('./routes/announcements')
 const pollRouter = require('./routes/poll')
 const tasRouter = require('./routes/tas')
+const apartmentsRouter = require('./routes/apartments')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -65,6 +66,7 @@ app.use('/contacts', contactsRouter)
 app.use('/announcements', announcementsRouter)
 app.use('/poll', pollRouter)
 app.use('/tariffsAndservices', tasRouter)
+app.use('/apartments', apartmentsRouter)
 
 app.listen(process.env.PORT || 3000)
 console.log("http://localhost:3000");

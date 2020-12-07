@@ -33,7 +33,7 @@ router.post('/', storageMiddleware, async (req, res) => {
         console.log(error);
         res.render('news/new', {
             myNews: data,
-            errorMessage: 'Error creating sliderShow'
+            errorMessage: 'Error creating new'
         })
     }
 })
@@ -43,7 +43,8 @@ router.post('/update', storageMiddleware, async(req, res) => {
     if(req.files){req.files.forEach(file => {
         myFiles.push(file.path)
     })}
-    await News.findOneAndUpdate({title: req.body.title},{
+    let id = req.body.id
+    await News.findOneAndUpdate({_id: id},{
         title: req.body.title,
         subscription: req.body.subscription
     })
@@ -52,8 +53,7 @@ router.post('/update', storageMiddleware, async(req, res) => {
 
 router.get('/:id', async (req, res) => {
     const data = await News.findById(req.params.id)
-    let proid = data.id
-   res.render('news/edit', {myNews: data, proid: proid})
+   res.render('news/edit', {myNews: data})
 })
 
 router.get('/:id/del', async(req,res) => {
