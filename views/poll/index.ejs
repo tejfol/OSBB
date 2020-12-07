@@ -1,0 +1,35 @@
+<form action="/poll" method="GET">
+    <h2>Управління Оголошеннями</h2>
+    <a class="btn btn-dark" href="/poll/new">Створити оголошення</a>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Назва</th>
+                <th scope="col">Тематика</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Варіанти голосування</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+        <% poll.forEach(pol => { %>
+            <tbody>
+                <td><%= pol.name %></td>
+                <td><p><%- pol.subject %></p></td>
+                <td><%= pol.date %></td>
+                <td><% pol.votingOptions.forEach(voteVar => {%>
+                        <%= voteVar %> <br>
+                    <%}) %></td>
+                <td><a class="btn btn-secondary" href="/poll/<%= pol.id %> ">Show</a></td>
+                <td><a  class="btn btn-danger float-right" href="/poll/<%= pol.id %>/del">Delete</a></td>
+                </div>
+        <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    
+</form>
+<br>
+
+

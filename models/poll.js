@@ -11,11 +11,8 @@ const pollSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    votingOpions: [{
-        option: {
-            type: String
-        }
-    }]
+    votingOptions: [String],
+    votes: [String]
 })
 
 let Poll = mongoose.model('Poll', pollSchema)
