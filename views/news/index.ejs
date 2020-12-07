@@ -15,11 +15,15 @@
             </thead>
         <% myNews.forEach(News => { %>
             <tbody>
-                <td><%= News.title %> </td>
-                <td><p><%- News.subscription %></p></th>
-                <td><img style="width: 50px;" src="<%= News.imgPath %>" alt=""></td>
+                <td ><%= News.title %> </td>
+                <td ><p><%- News.subscription %></p></th>
+                <td class="d-flex justify-content-center">
+                    <% News.imgPath.forEach(img =>{%>
+                        <img class="rounded" style="width: 50px;" src="<%-img%>" alt="">
+                    <%}) %> 
+                </td>
                 <td><%= News.date %> </td>
-                <td><a class="btn btn-secondary" href="/news/<%= News.id %> ">Show</a></td>
+                <td><a class="btn btn-secondary" href="/news/<%= News.id %> ">Edit</a></td>
                 <td><a  class="btn btn-danger float-right" href="/news/<%= News.id %>/del">Delete</a></td>
                 </div>
         <% }) %> 

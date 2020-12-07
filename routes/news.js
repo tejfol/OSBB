@@ -38,9 +38,22 @@ router.post('/', storageMiddleware, async (req, res) => {
     }
 })
 
+router.post('/update', storageMiddleware, async(req, res) => {
+    let myfiles = [];
+    if(req.files){req.files.forEach(file => {
+        myFiles.push(file.path)
+    })}
+    await News.findOneAndUpdate({title: req.body.title},{
+        title: req.body.title,
+        subscription: req.body.subscription
+    })
+    res.redirect('/news')
+})
+
 router.get('/:id', async (req, res) => {
     const data = await News.findById(req.params.id)
-   res.render('news/show', {myNews: data})
+    let proid = data.id
+   res.render('news/edit', {myNews: data, proid: proid})
 })
 
 router.get('/:id/del', async(req,res) => {

@@ -30,8 +30,15 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const data = await Contacts.findById(req.params.id)
-   res.render('contacts/show', {contacts: data})
+
+    const data2 = await Contacts.findById(req.params.id)
+    const data = await Contacts.findById({})
+    await Contacts.findByIdAndUpdate({id: dataw.id},{
+        titul: req.body.titul,
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber
+    })
+   res.render('contacts', {contacts: data})
 })
 
 router.get('/:id/del', async(req,res) => {

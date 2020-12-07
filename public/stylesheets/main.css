@@ -8,3 +8,12 @@
 * {
     padding: 2px;   
 }
+
+.iconify[data-icon='mdi:passport'] {
+    color: rgb(121, 121, 121);
+ }
+
+ table {
+     font-size: 15px;
+     color: rgb(121, 121, 121);
+ }

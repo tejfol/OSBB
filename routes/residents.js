@@ -31,7 +31,7 @@ router.post('/', storageMiddleware, async (req, res) => {
         birthPlace: req.body.birthPlace,
         phoneNumber: req.body.phoneNumber,
         role: req.body.role,
-        imgPath: myFiles
+        imgPath: myFiles ? myFiles : ''
     })
     try {
         const newResident = await data.save()
@@ -46,9 +46,26 @@ router.post('/', storageMiddleware, async (req, res) => {
     }
  })
 
- router.get('/:id', async (req, res) => {
-     const data = await Residents.findById(req.params.id)
-    res.render('residents/show', {residents: data})
+ router.get('/:id/edit', async (req, res) => {
+    const data = await Residents.findById(req.params.id)
+   res.render('residents/edit', {residents: data})
+})
+
+ router.post('/update', storageMiddleware, async (req, res) => {
+    let myFiles = [];
+    if(req.files){req.files.forEach(file => {
+        myFiles.push(file.path)
+    })}
+    await Residents.findOneAndUpdate({pib: req.body.pib},{
+        pib: req.body.pib,
+        birthday: req.body.birthday,
+        idc: req.body.idc,
+        birthPlace: req.body.birthPlace,
+        phoneNumber: req.body.phoneNumber,
+        role: req.body.role,
+        imgPath: myFiles ? myFiles : ''
+    })
+    res.redirect('/residents')
 })
 
 router.get('/:id/del', async(req,res) => {

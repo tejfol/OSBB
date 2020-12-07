@@ -1,11 +1,11 @@
 
     <div class="form-group">
         <label for="title">Заголовок</label>
-        <input class="form-control" type="text" name="title" required <% myNews.title %>>
+        <input class="form-control" type="text" name="title" required value="<%= myNews.title %>">
     </div>
     <div class="form-group">
         <label for="subscription">Текст новини</label>
-        <textarea class="form-control" id="tinymce" type="textarea" name="subscription" required <% myNews.subscription %>></textarea>
+        <textarea class="form-control" id="tinymce" type="textarea" name="subscription" required value="<%= myNews.subscription %>"><%= myNews.subscription %></textarea>
     </div>
     <div class="form-group">
         <label for="files">Картинки</label>
