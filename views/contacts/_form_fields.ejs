@@ -1,13 +1,17 @@
 
+<div class="form-group" style="display: none;">
+    <label for="id">ID</label>
+    <input class="form-control" type="text" name="id" required value="<%= contacts.id %>">
+</div>
     <div class="form-group">
         <label for="titul">Титул</label>
-        <input class="form-control" type="text" name="titul" required <% contacts.titul %>>
+        <input class="form-control" type="text" name="titul" required value="<%= contacts.titul %>">
     </div>
     <div class="form-group">
         <label for="name">ПІБ</label>
-        <input class="form-control" type="text" name="name" required <% contacts.name %>></input>
+        <input class="form-control" type="text" name="name" required value="<%= contacts.name %>"></input>
     </div>
     <div class="form-group">
         <label for="phoneNumber">Телефон</label>
-        <input class="form-control" type="text" name="phoneNumber" required <% contacts.phoneNumber %>></input>
+        <input class="form-control" type="text" name="phoneNumber" required value="<%= contacts.phoneNumber %>"></input>
     </div>

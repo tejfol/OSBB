@@ -29,16 +29,26 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
-
-    const data2 = await Contacts.findById(req.params.id)
-    const data = await Contacts.findById({})
-    await Contacts.findByIdAndUpdate({id: dataw.id},{
+router.post('/update', async (req, res) =>{
+    let id = req.body.id;
+    await Contacts.findByIdAndUpdate({_id:id},{
         titul: req.body.titul,
         name: req.body.name,
         phoneNumber: req.body.phoneNumber
     })
-   res.render('contacts', {contacts: data})
+    res.redirect('/contacts')
+})
+
+router.get('/:id', async (req, res) => {
+
+    // const data2 = await Contacts.findById(req.params.id)
+     const data = await Contacts.findById(req.params.id)
+    // await Contacts.findByIdAndUpdate({id: data2.id},{
+    //     titul: req.body.titul,
+    //     name: req.body.name,
+    //     phoneNumber: req.body.phoneNumber
+    // })
+   res.render('contacts/edit', {contacts: data})
 })
 
 router.get('/:id/del', async(req,res) => {
