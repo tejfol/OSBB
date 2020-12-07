@@ -1,32 +1,5 @@
-
-    <div class="form-group">
-        <label for="osbbname">Назва ОСББ</label>
-        <input class="form-control" type="text" name="osbbname" required <% osbb.osbbname %>>
-    </div>
-    <div class="form-group">
-        <label for="adress">Адреса</label>
-        <input class="form-control" type="text" name="birthday" required <% osbb.adress %>>
-    </div>
-    <div class="form-group">
-        <label for="edrpoy">ЄДРПОУ</label>
-        <input class="form-control" type="number" name="edrpoy" required <% osbb.edrpoy %>>
-    </div>
-    <div class="form-group">
-        <label for="bank">Банк</label>
-        <input class="form-control" type="text" name="bank" required <% osbb.bank %>>
-    </div>
-    <div class="form-group">
-        <label for="acoountnumber">Код банку (мфо)</label>
-        <input class="form-control" type="number" name="acoountnumber" required <% osbb.acoountnumber %>>
-    </div>
-    <div class="form-group">
-        <label for="accountnumber">Номер рахунку</label>
-        <input class="form-control" type="number" name="accountnumber" required <% osbb.accountnumber %>>
-    </div>
-    <div class="form-group">
-        <label for="iban">IBAN</label>
-        <input class="form-control" type="number" name="iban" required <% osbb.iban %>>
-    </div>
-    <div class="form-group">
-        <label for="apartments">К-сть квартир</label>
-        <input class="form-control" type="number" name="apartments" required <% osbb.apartments %>>
+<form action="/osbb/update" method="POST">
+    <%- include('_form_fields') %>
+    <button  class="btn btn-primary float-right" type="submit"">Update</button>
+    <a class="btn btn-outline-secondary" href="/osbb">Cancel</a>
+</form>

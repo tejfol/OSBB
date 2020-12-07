@@ -20,7 +20,7 @@
                     <td><%= resident.birthday %></td>
                     <td><%= resident.idc %></td>
                     <td><%= resident.birthPlace %></td>
-                    <td><%= resident.imgPath %></td>
+                    <td><a href="<%- resident.imgPath %>"><img width="50" src="<%- resident.imgPath %>" alt=""></a></td>
                     <td><%= resident.phoneNumber %></td>
                     <td><a  class="btn btn-primary float-right" href="/residents/<%= resident.id %>">Show</a></td>
                     <td><a  class="btn btn-danger float-right" href="/residents/<%= resident.id %>/del">Delete</a></td>

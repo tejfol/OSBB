@@ -1,12 +1,10 @@
 <form action="/osbb" method="GET">
     <div>
         <h2>ОСББ</h2>
-        <a class="btn btn-dark" href="/osbb/new">Add new OSBB</a>
-        
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">Назва ОСББ</th>
+                    <th scope="col">Назва</th>
                     <th scope="col">Адреса</th>
                     <th scope="col">ЄДРПОУ</th>
                     <th scope="col">Банк</th>
@@ -14,7 +12,6 @@
                     <th scope="col">Номер рахунку</th>
                     <th scope="col">IBAN</th>
                     <th scope="col">К-сть квартир</th>
-                    <th></th>
                     <th></th>
                     </tr>
                 </thead>
@@ -29,8 +26,7 @@
                         <td><%= osb.accountnumber %></td>
                         <td><%= osb.iban %></td>
                         <td><%= osb.apartments %></td>
-                        <td><a  class="btn btn-primary float-right" href="/osbb/<%= osb.id %>">Show</a></td>
-                        <td><a  class="btn btn-danger float-right" href="/osbb/<%= osb.id %>/del">Delete</a></td>
+                        <td><a  class="btn btn-primary float-right" href="/osbb/<%= osb.id %>">Edit</a></td>
                     </tr>
                     <% }) %> 
                 </tbody>

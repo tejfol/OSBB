@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const osbbSchema = new mongoose.Schema({
     osbbname:{type:String},
     adress:{type:String},
-    edrpoy:{type:Number},
+    edrpoy:{type:String},
     bank:{type:String},
-    mfo:{type:Number},
-    accountnumber:{type:Number},
+    mfo:{type:String},
+    accountnumber:{type:String},
     iban:{type:String},
     apartments:{type:Number}
 });
