@@ -1,6 +1,6 @@
 <form action="/contacts" method="GET">
-    <h2>Управління новинами</h2>
-    <a class="btn btn-dark" href="/contacts/new">Створити новину</a>
+    <h2>Контакти</h2>
+    <a class="btn btn-dark" href="/contacts/new">Добавити контакт</a>
     <div>
         <table class="table">
             <thead>
@@ -17,7 +17,7 @@
                 <td><%= contact.titul %></td>
                 <td><%= contact.name %></td>
                 <td><%= contact.phoneNumber %> </td>
-                <td><a class="btn btn-secondary float-right" href="/contacts/<%= contact.id %>">Update</a></td>
+                <td><a class="btn btn-secondary float-right" href="/contacts/<%= contact.id %>">Edit</a></td>
                 <td><a class="btn btn-danger float-left" href="/contacts/<%= contact.id %>/del">Delete</a></td>
     </div>
     <% }) %>

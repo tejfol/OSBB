@@ -29,9 +29,18 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.post('/update', async(req, res) => {
+    let id = req.body.id
+    await Announcements.findOneAndUpdate({_id: id},{
+        title: req.body.title,
+        text: req.body.text,
+    })
+    res.redirect('/announcements')
+})
+
 router.get('/:id', async (req, res) => {
     const data = await Announcements.findById(req.params.id)
-   res.render('announcements/show', {announcements: data})
+   res.render('announcements/edit', {announcements: data})
 })
 
 router.get('/:id/del', async(req,res) => {

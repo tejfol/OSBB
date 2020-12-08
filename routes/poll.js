@@ -31,16 +31,7 @@ router.post('/', async (req, res) => {
     })
     try {
         const newPoll = await data.save();
-        // votingOptions.forEach(option => {
-        //     Poll.findByIdAndUpdate(
-        //         newPoll._id,
-        //         {$push: {votingOptions: {option:option}}},
-        //         {safe: true, upsert: true, new : true},
-        //         function(err, model) {
-        //             console.log(err);
-        //         }
-        //     );
-        // }) 
+        
         res.redirect('poll')
     } catch (error) {
         console.log(error);
@@ -51,9 +42,18 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.post('/update', async(req, res) => {
+    let id = req.body.id
+    await Poll.findOneAndUpdate({_id: id},{
+        name: req.body.name,
+        subject: req.body.subject
+    })
+    res.redirect('/poll')
+})
+
 router.get('/:id', async (req, res) => {
     const data = await Poll.findById(req.params.id)
-   res.render('poll/show', {poll: data})
+   res.render('poll/edit', {poll: data})
 })
 
 router.get('/:id/del', async(req,res) => {
