@@ -1,35 +1,38 @@
 <form action="/poll" method="GET">
-    <h2>Управління Опитуванням</h2>
-    <a class="btn btn-dark" href="/poll/new">Створити оголошення</a>
+    <div class="tablecup">
+        <h2>Управління Опитуванням</h2>
+        <a class="btn btn-dark" href="/poll/new">Створити оголошення</a>
+    </div>
+    <br>
     <div>
-        <table class="table">
+        <table class="table tablec">
             <thead>
                 <tr>
-                <th scope="col">Назва</th>
-                <th scope="col">Тематика</th>
-                <th scope="col">Дата</th>
-                <th scope="col">Варіанти голосування</th>
-                <th></th>
-                <th></th>
+                    <th scope="col">Назва</th>
+                    <th scope="col">Тематика</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Варіанти голосування</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
-        <% poll.forEach(pol => { %>
+            <% poll.forEach(pol => { %>
             <tbody>
                 <td><%= pol.name %></td>
-                <td><p><%- pol.subject %></p></td>
+                <td>
+                    <p><%- pol.subject %></p>
+                </td>
                 <td><%= pol.date %></td>
                 <td><% pol.votingOptions.forEach(voteVar => {%>
-                        <%= voteVar %> <br>
+                    <%= voteVar %> <br>
                     <%}) %></td>
-                <td><a class="btn btn-secondary" href="/poll/<%= pol.id %> ">Edit</a></td>
-                <td><a  class="btn btn-danger float-right" href="/poll/<%= pol.id %>/del">Delete</a></td>
-                </div>
-        <% }) %> 
-            </tbody>
-        </table>
+                <td><a class="float-right text-dark" href="/poll/<%= pol.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><a class="float-right text-dark" href="/poll/<%= pol.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
     </div>
-    
+    <% }) %>
+    </tbody>
+    </table>
+    </div>
+
 </form>
 <br>
-
-

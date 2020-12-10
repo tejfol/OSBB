@@ -1,8 +1,11 @@
 <form action="/residents" method="GET">
-    <div>
+    <div class="tablecup">
         <h2>Мешканці</h2>
-        <a class="btn btn-dark" href="/residents/new">Добавити</a>
-        <table class="table">
+        <a class="btn btn-dark" href="/residents/new">Добавити нового мешканця</a>
+    </div>
+    <br>
+    <div>
+        <table class="table tablec">
             <thead>
                 <tr>
                 <th scope="col">ПІБ</th>
@@ -20,10 +23,10 @@
                     <td><%= resident.birthday %></td>
                     <td><%= resident.idc %></td>
                     <td><%= resident.birthPlace %></td>
-                    <td><a href="<%- resident.imgPath %>"><span class="iconify" data-icon="mdi:passport" data-height="48" data-inline="false"></span></a></td>
+                    <td><a class='text-dark' href="<%- resident.imgPath %>"><span class="iconify" data-icon="mdi:passport" data-height="48" data-inline="false"></span></a></td>
                     <td><%= resident.phoneNumber %></td>
-                    <td><a  class="btn btn-primary float-right" href="/residents/<%= resident.id %>/edit">Edit</a></td>
-                    <td><a  class="btn btn-danger float-right" href="/residents/<%= resident.id %>/del">Delete</a></td>
+                    <td><a  class="text-dark float-right" href="/residents/<%= resident.id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td><a  class="text-dark float-right" href="/residents/<%= resident.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
                 </tr>
                 <% }) %> 
             </tbody>

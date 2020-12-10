@@ -1,8 +1,11 @@
 <form action="/news" method="GET">
-    <h2>Управління новинами</h2>
-    <a class="btn btn-dark" href="/news/new">Створити новину</a>
+        <div class="tablecup">
+            <h2>Управління новинами</h2>
+        <a class="btn btn-dark" href="/news/new">Створити новину</a>
+        </div>
+    <br>
     <div>
-        <table class="table">
+        <table class="table tablec">
             <thead>
                 <tr>
                 <th scope="col">Назва</th>
@@ -23,8 +26,8 @@
                     <%}) %> 
                 </td>
                 <td><%= News.date %> </td>
-                <td><a class="btn btn-secondary" href="/news/<%= News.id %> ">Edit</a></td>
-                <td><a  class="btn btn-danger float-right" href="/news/<%= News.id %>/del">Delete</a></td>
+                <td><a class="text-dark float-right" href="/news/<%= News.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><a  class="text-dark  float-right" href="/news/<%= News.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
                 </div>
         <% }) %> 
             </tbody>

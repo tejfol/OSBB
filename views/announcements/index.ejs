@@ -1,30 +1,33 @@
 <form action="/announcements" method="GET">
-    <h2>Управління Оголошеннями</h2>
-    <a class="btn btn-dark" href="/announcements/new">Створити оголошення</a>
+    <div class="tablecup">
+        <h2>Управління Оголошеннями</h2>
+        <a class="btn btn-dark" href="/announcements/new">Створити оголошення</a>
+    </div>
+    <br>
     <div>
-        <table class="table">
+        <table class="table tablec">
             <thead>
                 <tr>
-                <th scope="col">Назва</th>
-                <th scope="col">Текст</th>
-                <th scope="col">Дата</th>
-                <th></th>
+                    <th scope="col">Назва</th>
+                    <th scope="col">Текст</th>
+                    <th scope="col">Дата</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
-        <% announcements.forEach(announcement => { %>
+            <% announcements.forEach(announcement => { %>
             <tbody>
                 <td><%= announcement.title %></td>
                 <td><%- announcement.text %></td>
                 <td><%= announcement.date %></td>
-                <td><a class="btn btn-secondary" href="/announcements/<%= announcement.id %> ">Edit</a>
-                <a  class="btn btn-danger float-right" href="/announcements/<%= announcement.id %>/del">Delete</a></td>
-                </div>
-        <% }) %> 
-            </tbody>
-        </table>
+                <td><a class="float-right text-dark" href="/announcements/<%= announcement.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                   <td> <a class="float-right text-dark" href="/announcements/<%= announcement.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
+                </td>
     </div>
-    
+    <% }) %>
+    </tbody>
+    </table>
+    </div>
+
 </form>
 <br>
-
-
