@@ -5,7 +5,7 @@
     </div>
     <br>
     <div>
-        <table class="table tablec">
+        <table class="table tablec table-striped">
             <thead>
                 <tr>
                     <th scope="col">Назва</th>
@@ -15,19 +15,20 @@
                     <th></th>
                 </tr>
             </thead>
-            <% announcements.forEach(announcement => { %>
             <tbody>
-                <td><%= announcement.title %></td>
-                <td><%- announcement.text %></td>
-                <td><%= announcement.date.toISOString().split('T')[0] %></td>
-                <td><a class="float-right text-dark" href="/announcements/<%= announcement.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                   <td> <a class="float-right text-dark" href="/announcements/<%= announcement.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
-                </td>
+                <tr>
+                    <% announcements.forEach(announcement => { %>
+                    <td><%= announcement.title %></td>
+                    <td><%- announcement.text %></td>
+                    <td><%= announcement.date.toISOString().split('T')[0] %></td>
+                    <td><a class="float-right text-dark" href="/announcements/<%= announcement.id %> "><i
+                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td> <a class="float-right text-dark" href="/announcements/<%= announcement.id %>/del"><i
+                                class="fa fa-minus-square-o" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
     </div>
-    <% }) %>
-    </tbody>
-    </table>
-    </div>
-
 </form>
-<br>

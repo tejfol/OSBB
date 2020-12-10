@@ -5,7 +5,7 @@
     </div>
     <br>
     <div>
-        <table class="table tablec">
+        <table class="table tablec table-striped">
             <thead>
                 <tr>
                     <th></th>
@@ -15,14 +15,15 @@
                     <th></th>
                 </tr>
             </thead>
-            <% contacts.forEach(contact => { %>
             <tbody>
+                <tr>
+            <% contacts.forEach(contact => { %>
                 <td><%= contact.titul %></td>
                 <td><%= contact.name %></td>
                 <td><%= contact.phoneNumber %> </td>
                 <td><a class="text-dark float-right" href="/contacts/<%= contact.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td><a class="text-dark float-right" href="/contacts/<%= contact.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
-    </div>
+            </tr>
     <% }) %>
     </tbody>
     </table>

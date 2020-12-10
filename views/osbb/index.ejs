@@ -4,7 +4,7 @@
     </div>
     <br>
     <div>
-            <table class="table tablec">
+            <table class="table tablec table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Назва</th>
@@ -18,8 +18,8 @@
                     <th></th>
                     </tr>
                 </thead>
-                <% osbb.forEach(osb => { %>
                 <tbody>
+                <% osbb.forEach(osb => { %>
                     <tr>
                         <td ><%= osb.osbbname %></td>
                         <td><%= osb.adress %></td>

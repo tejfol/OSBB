@@ -3,8 +3,19 @@ const Apartments = require('../models/apartments')
 const router = express.Router()
 
 router.get('/', async (req, res) => {
-    const data = await Apartments.find({});
-    res.render('apartments/index', {apartments: data});
+    let searchOptions = {}
+  if (req.query.owner != null && req.query.owner !== '') {
+    searchOptions.owner = new RegExp(req.query.owner, 'i')
+  }
+  try {
+    const data = await Apartments.find(searchOptions)
+    res.render('apartments/index', {
+      apartments: data,
+      searchOptions: req.query
+    })
+  } catch {
+    res.redirect('apartments/index')
+  }
 })
 
 router.get('/new', (req, res) => {

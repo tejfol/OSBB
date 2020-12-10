@@ -5,7 +5,7 @@
     </div>
     <br>
     <div>
-        <table class="table tablec">
+        <table class="table tablec table-striped">
             <thead>
                 <tr>
                     <th scope="col">Назва</th>
@@ -16,8 +16,9 @@
                     <th></th>
                 </tr>
             </thead>
-            <% poll.forEach(pol => { %>
             <tbody>
+            <% poll.forEach(pol => { %>
+                <tr>
                 <td><%= pol.name %></td>
                 <td>
                     <p><%- pol.subject %></p>
@@ -28,7 +29,7 @@
                     <%}) %></td>
                 <td><a class="float-right text-dark" href="/poll/<%= pol.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td><a class="float-right text-dark" href="/poll/<%= pol.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
-    </div>
+            </tr>
     <% }) %>
     </tbody>
     </table>

@@ -5,7 +5,7 @@
         </div>
     <br>
     <div>
-        <table class="table tablec">
+        <table class="table tablec table-striped">
             <thead>
                 <tr>
                 <th scope="col">Назва</th>
@@ -16,20 +16,21 @@
                 <th></th>
                 </tr>
             </thead>
-        <% myNews.forEach(News => { %>
             <tbody>
-                <td ><%= News.title %> </td>
-                <td ><p><%- News.subscription %></p></th>
-                <td class="d-flex justify-content-center">
-                    <% News.imgPath.forEach(img =>{%>
-                        <img class="rounded" style="width: 50px;" src="<%-img%>" alt="">
-                    <%}) %> 
-                </td>
-                <td><%= News.date %> </td>
-                <td><a class="text-dark float-right" href="/news/<%= News.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                <td><a  class="text-dark  float-right" href="/news/<%= News.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
-                </div>
-        <% }) %> 
+                <% myNews.forEach(News => { %>
+                    <tr>
+                        <td ><%= News.title %> </td>
+                        <td ><p><%- News.subscription %></p></th>
+                        <td class="d-flex justify-content-center">
+                            <% News.imgPath.forEach(img =>{%>
+                                <img class="rounded" style="width: 50px;" src="<%-img%>" alt="">
+                            <%}) %> 
+                        </td>
+                        <td><%= News.date.toISOString().split('T')[0] %> </td>
+                        <td><a class="text-dark float-right" href="/news/<%= News.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a  class="text-dark  float-right" href="/news/<%= News.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
+                    </tr>
+                <% }) %> 
             </tbody>
         </table>
     </div>

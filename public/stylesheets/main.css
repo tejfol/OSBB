@@ -248,12 +248,13 @@ nav ul,nav li {
 outline:0;
 margin:0;
 padding:0;
-text-transform: uppercase;
 }
 
-
-
-
+.active{
+  background-color: #00bbbb;
+  font-weight: 100;
+  font-size: 100px;
+}
 /* Darker element side menu Start*/
 
 
