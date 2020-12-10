@@ -8,8 +8,7 @@ const apartmentSchema = new mongoose.Schema({
     benefits:[String],
     phoneNumber:{type:String},
     services:[String],
-    residents:[{type: mongoose.Schema.Types.ObjectId,
-        ref: 'residents'}]
+    residents:[String]
 })
 
 let Apartments = mongoose.model('Apartments', apartmentSchema)

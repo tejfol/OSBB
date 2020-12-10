@@ -1,6 +1,7 @@
 const express = require('express')
 const Apartments = require('../models/apartments')
 const router = express.Router()
+const splitStr = require('../middleware/split');
 
 router.get('/', async (req, res) => {
     let searchOptions = {}
@@ -23,6 +24,16 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+  let str = req.body.residents
+  let residents = []
+  str.toString()
+  let resi = splitStr(str, ',');
+  console.log(resi);
+  resi.forEach(file => {
+      
+      residents.push(file)
+  });
+
     const data = await new Apartments({
         owner: req.body.owner,
         accountNumber: req.body.accountNumber,
@@ -30,7 +41,8 @@ router.post('/', async (req, res) => {
         adress: req.body.adress,
         benefits: req.body.benefits,
         phoneNumber: req.body.phoneNumber,
-        services: req.body.services
+        services: req.body.services,
+        residents: residents
     })
     try {
         const newApartment = await data.save();
@@ -45,6 +57,15 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/update', async (req, res) =>{
+  let str = req.body.residents
+  let residents = []
+  str.toString()
+  let resi = splitStr(str, ',');
+  console.log(resi);
+  resi.forEach(file => {
+      
+      residents.push(file)
+  });
     let id = req.body.id
     await Apartments.findOneAndUpdate({_id: id},{
         owner: req.body.owner,
@@ -53,7 +74,8 @@ router.post('/update', async (req, res) =>{
         adress: req.body.adress,
         benefits: req.body.benefits,
         phoneNumber: req.body.phoneNumber,
-        services: req.body.services
+        services: req.body.services,
+        residents: residents
     })
     res.redirect('/apartments')
 })
