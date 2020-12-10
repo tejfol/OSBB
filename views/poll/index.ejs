@@ -22,7 +22,7 @@
                 <td>
                     <p><%- pol.subject %></p>
                 </td>
-                <td><%= pol.date %></td>
+                <td><%= pol.date.toISOString().split('T')[0] %></td>
                 <td><% pol.votingOptions.forEach(voteVar => {%>
                     <%= voteVar %> <br>
                     <%}) %></td>

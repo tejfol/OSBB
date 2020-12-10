@@ -19,7 +19,7 @@
             <tbody>
                 <td><%= announcement.title %></td>
                 <td><%- announcement.text %></td>
-                <td><%= announcement.date %></td>
+                <td><%= announcement.date.toISOString().split('T')[0] %></td>
                 <td><a class="float-right text-dark" href="/announcements/<%= announcement.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                    <td> <a class="float-right text-dark" href="/announcements/<%= announcement.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
                 </td>

@@ -7,8 +7,23 @@ const createStorage  = require('../middleware/storageMiddleware')
 const storageMiddleware = createStorage('')
 
 router.get('/', async (req, res) => {
-   const data = await Residents.find({});
-   res.render('residents/index', {residents:data})
+    let searchOptions = {}
+    if (req.query.pib != null && req.query.pib !== '') {
+      searchOptions.pib = new RegExp(req.query.pib, 'i')
+    }
+    try {
+      const authors = await Residents.find(searchOptions)
+      res.render('residents/index', {
+        residents: authors,
+        searchOptions: req.query
+      })
+    } catch {
+      res.redirect('/')
+    }
+
+
+//    const data = await Residents.find({});
+//    res.render('residents/index', {residents:data})
 })
 
 router.get('/new', async (req, res) => {
@@ -25,7 +40,7 @@ router.post('/', storageMiddleware, async (req, res) => {
     let pass = makePass().toString();
     const data = await new Residents({
         pib: req.body.pib,
-        birthday: req.body.birthday,
+        birthday: new Date(req.body.birthday),
         idc: req.body.idc,
         password: pass,
         birthPlace: req.body.birthPlace,

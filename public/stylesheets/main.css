@@ -305,3 +305,12 @@ height: 100%;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
+
+.searchbar{
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  opacity: 80%;
+}
+
+

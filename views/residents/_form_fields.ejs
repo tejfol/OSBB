@@ -9,7 +9,8 @@
     </div>
     <div class="form-group">
         <label for="birthday">Дата народження</label>
-        <input class="form-control" type="date" value="" name="birthday" required value="<% residents.birthday %>">
+        <input class="form-control" type="date" name="birthday" required value="<%= residents.birthday.toISOString().split('T')[0]%>">
+        
     </div>
     <div class="form-group">
         <label for="idc">Ідентифікаційний код</label>

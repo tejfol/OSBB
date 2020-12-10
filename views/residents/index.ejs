@@ -2,6 +2,10 @@
     <div class="tablecup">
         <h2>Мешканці</h2>
         <a class="btn btn-dark" href="/residents/new">Добавити нового мешканця</a>
+        <div class="float-right">
+            <input class="searchbar" type="text" name="pib" placeholder="ПІБ" value="<%= searchOptions.pib %>">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
     </div>
     <br>
     <div>
@@ -20,7 +24,7 @@
             <tbody>
                 <tr>
                     <td><%= resident.pib %></td>
-                    <td><%= resident.birthday %></td>
+                    <td><%= resident.birthday.toISOString().split('T')[0]%></td>
                     <td><%= resident.idc %></td>
                     <td><%= resident.birthPlace %></td>
                     <td><a class='text-dark' href="<%- resident.imgPath %>"><span class="iconify" data-icon="mdi:passport" data-height="48" data-inline="false"></span></a></td>
