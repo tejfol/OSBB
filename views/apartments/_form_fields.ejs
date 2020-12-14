@@ -1,6 +1,6 @@
 <div class="form-group" style="display: none;">
     <label for="id">ID</label>
-    <input class="form-control" type="text" name="id" required value="<%= apartments.id %>">
+    <input class="form-control" type="text" name="id" id="id" required value="<%= apartments.id %>">
 </div>
     <div class="form-group">
         <label for="owner">Власник</label>
@@ -40,75 +40,133 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.electricity == true){ %>
+                    <td><input name="electricity" value="on"  id="electricity" type="checkbox" <% if(apartments.services.electricity == 'on'){ %>
                         checked="checked"
-                    <% } %> >Електроенергія</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                         value="off"
+                        <%} %> > Електроенергія</td>
+                    <td><select name="electricityType" id="electricityType">
+                        <option value="По лічильнику" <% if(apartments.services.electricityType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.electricityType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input type="text" id="electricityCost" name="electricityCost" placeholder="<%= apartments.services.electricityCost != null | '' ? apartments.services.electricityCost : '-' %> " value="<%= apartments.services.electricityCost != null | '' ? apartments.services.electricityCost : '-' %>"></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Електроенергія' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.trash == true){ %>
+                    <td><input name="trash" value="on" type="checkbox" id="trash" <% if(apartments.services.trash == 'on'){ %>
                         checked="checked"
-                    <% } %>>Вивіз сміття</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                         value="off"
+                        <%} %>> Вивіз сміття</td>
+                    <td><select name="trashType" id="trashType">
+                        <option value="По лічильнику" <% if(apartments.services.trashType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.trashType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
+                    </select>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input name="trashCost" id="trashCost" type="text" placeholder="<%= apartments.services.trashCost != null | '' ? apartments.services.trashCost : '-' %> " value="<%= apartments.services.trashCost != null | '' ? apartments.services.trashCost : '-' %>"></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Вивіз сміття' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.water == true){ %>
+                    <td><input name="water" value="on" type="checkbox" id="water"  <% if(apartments.services.water == 'on'){ %>
                         checked="checked"
-                    <% } %>>Водопостачання</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                         value="off"
+                        <%} %>> Водопостачання</td>
+                    <td><select name="waterType" id="waterType">
+                        <option value="По лічильнику" <% if(apartments.services.waterType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.waterType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
+                    </select>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input name="waterCost" id="waterCost" type="text" placeholder="<%= apartments.services.waterCost != null | '' ? apartments.services.waterCost : '-' %>" value="<%= apartments.services.waterCost != null | '' ? apartments.services.waterCost : '-' %>"></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Водопостачання' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.lift == false){ %>
+                    <td><input name="lift" value="on" type="checkbox" id="lift" <% if(apartments.services.lift == 'on'){ %>
                         checked="checked"
-                    <% } %>>Обслуг. ліфту</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                         value="off"
+                        <%} %>> Обслуг. ліфту</td>
+                    <td><select name="liftType" id="liftType">
+                        <option value="По лічильнику" <% if(apartments.services.liftType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.liftType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
+                    </select>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input name="liftCost" id="liftCost" type="text" placeholder="<%= apartments.services.liftCost != null | '' ? apartments.services.liftCost : '-' %>" value="<%= apartments.services.liftCost != null | '' ? apartments.services.liftCost : '-' %>"></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Обслуг. ліфту' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.quarter == true){ %>
+                    <td><input name="quarter" value="on" type="checkbox" id="quarter"  <% if(apartments.services.quarter == 'on'){ %>
                         checked="checked"
-                    <% } %>>Квартоплата</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                         value="off"
+                        <%} %>> Квартоплата</td>
+                    <td><select name="quarterType" id="quarterType">
+                        <option value="По лічильнику" <% if(apartments.services.quarterType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.quarterType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
+                    </select>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input name="quarterCost" id="quarterCost" type="text" placeholder="<%= apartments.services.quarterCost != null | '' ? apartments.services.quarterCost : '-' %>" value="<%= apartments.services.quarterCost != null | '' ? apartments.services.quarterCost : '-' %>"></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Квартоплата' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" <% if(apartments.services.gas == true){ %>
+                    <td><input name="gas" value="on" type="checkbox" id="gas" <% if(apartments.services.gas == 'on'){ %>
                         checked="checked"
-                    <% } %>>Газ</td>
-                    <td><select name="type" id="type">
-                        <option value="По лічильнику">По лічильнику</option>
-                        <option value="Фіксований">Фіксований</option>
+                    <% }else{%>
+                        value="off"
+                        <%} %>> Газ</td>
+                    <td><select name="gasType" id="gasType">
+                        <option value="По лічильнику" <% if(apartments.services.gasType == 'По лічильнику'){%>
+                            selected
+                         <% }%>>По лічильнику</option>
+                        <option value="Фіксований" <% if(apartments.services.gasType == 'Фіксований'){%> 
+                            selected
+                            <% }%>>Фіксований</option>
+                    </select>
                     </select></td>
-                    <td><input type="text" placeholder="-"></td>
-                    <td>-</td>
+                    <td><input name="gasCost" id="gasCost" type="text" placeholder="<%= apartments.services.gasCost != null | '' ? apartments.services.gasCost : '-' %>" value="<%= apartments.services.gasCost != null | '' ? apartments.services.gasCost : '-' %> "></td>
+                    <td><% tas.forEach(tas => {%>
+                        
+                        <%= tas.name == 'Газ' ? tas.cost : ''  %>
+                        <% }) %></td>
                 </tr>
             </tbody>
         </table>
 
-        <input class="form-control" type="text" name="services"  value="<%= apartments.services %>">
     </div>
     <div class="form-group">
         <label for="residents">Зареєстровані</label>

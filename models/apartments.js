@@ -8,47 +8,64 @@ const apartmentSchema = new mongoose.Schema({
   benefits: [String],
   phoneNumber: { type: String },
   services: {
+    
+    ////////////////
+    electricityCost:{
+      type: String
+    },
+    trashCost:{
+      type: String
+    },
+    liftCost:{
+      type: String
+    },
+    quarterCost:{
+      type: String
+    },
+    gasCost:{
+      type: String
+    },
+    waterCost:{
+      type: String
+    },
+    /////////////
+    electricityType:{
+      type: String
+    },
+    trashType:{
+      type: String
+    },
+    liftType:{
+      type: String
+    },
+    quarterType:{
+      type: String
+    },
+    gasType:{
+      type: String
+    },
+    waterType:{
+      type: String
+    },
+
+    
     electricity: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     water: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     trash: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     lift: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     quarter: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     gas: {
-      type: Boolean,
-      default: false,
-      cost: {
-        type: String,
-      },
+      type: String
     },
     date: { type: Date, default: Date.now },
   },
