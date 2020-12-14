@@ -1,6 +1,6 @@
 <form action="/residents" method="GET">
     <div class="tablecup">
-        <h2>Мешканці</h2> <a class="btn btn-dark" href="/residents/new">Добавити нового мешканця</a>
+        <h2>Мешканці</h2> <a class="btn btn-dark" href="/residents/new">Додати мешканця</a>
         <div class="float-right">
             <input class="searchbar" type="text" name="pib" placeholder="ПІБ" value="<%= searchOptions.pib %>">
             <button class="btn" type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -33,8 +33,8 @@
                     <td><%= resident.birthPlace %></td>
                     <td><a class='text-dark' href="<%- resident.imgPath %>"><span class="iconify" data-icon="mdi:passport" data-height="48" data-inline="false"></span></a></td>
                     <td><%= resident.phoneNumber %></td>
-                    <td><a  class="text-dark float-right" href="/residents/<%= resident.id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                    <td><a  class="text-dark float-right" href="/residents/<%= resident.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
+                    <td><a  class="text-success float-right" href="/residents/<%= resident.id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td><a  class="text-danger float-right" href="/residents/<%= resident.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
                 </tr>
                 <% }) %> 
             </tbody>

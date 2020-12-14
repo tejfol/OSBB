@@ -1,4 +1,13 @@
-
-<div class="form-group tinymce" >
-    <textarea class="form-control" id="tinymce" type="textarea" name="tas" required value='<%= tas.tas %>'><%= tas.tas %></textarea>
+<div class="form-group" style="display: none;">
+    <label for="id">ID</label>
+    <input class="form-control" type="text" name="id" value="<%= tas.id %>">
 </div>
+    <div class="form-group">
+        <label for="name">Назва послуги</label>
+        <input class="form-control" type="text" id="name" name="name" required value="<%= tas.name %>">
+    </div>
+    <div class="form-group">
+        <label for="cost">Вартість</label>
+        <input class="form-control" type="text" id="cost" name="cost" value="<%- tas.cost %>" placeholder="грн">
+    </div>
+    

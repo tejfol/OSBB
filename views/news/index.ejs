@@ -1,7 +1,7 @@
 <form action="/news" method="GET">
         <div class="tablecup">
             <h2>Управління новинами</h2>
-        <a class="btn btn-dark" href="/news/new">Створити новину</a>
+        <a class="btn btn-dark" href="/news/new">Додати новину</a>
         </div>
     <br>
     <div>
@@ -27,8 +27,8 @@
                             <%}) %> 
                         </td>
                         <td><%= News.date.toISOString().split('T')[0] %> </td>
-                        <td><a class="text-dark float-right" href="/news/<%= News.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                        <td><a  class="text-dark  float-right" href="/news/<%= News.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
+                        <td><a class="text-success float-right" href="/news/<%= News.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                        <td><a  class="text-danger  float-right" href="/news/<%= News.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
                     </tr>
                 <% }) %> 
             </tbody>

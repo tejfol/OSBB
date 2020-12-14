@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
 
 const tasSchema = new mongoose.Schema({
-    tas: {
+    name: {
+        type: String
+    },
+    cost: {
         type: String
     }
 })

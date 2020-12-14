@@ -1,7 +1,7 @@
 <form action="/poll" method="GET">
     <div class="tablecup">
-        <h2>Управління Опитуванням</h2>
-        <a class="btn btn-dark" href="/poll/new">Створити оголошення</a>
+        <h2>Управління опитуванням</h2>
+        <a class="btn btn-dark" href="/poll/new">Додати оголошення</a>
     </div>
     <br>
     <div>
@@ -27,8 +27,8 @@
                 <td><% pol.votingOptions.forEach(voteVar => {%>
                     <%= voteVar %> <br>
                     <%}) %></td>
-                <td><a class="float-right text-dark" href="/poll/<%= pol.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                <td><a class="float-right text-dark" href="/poll/<%= pol.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
+                <td><a class="float-right text-success" href="/poll/<%= pol.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><a class="float-right text-danger" href="/poll/<%= pol.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
             </tr>
     <% }) %>
     </tbody>

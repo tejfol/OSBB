@@ -1,7 +1,7 @@
 <form action="/apartments" method="GET">
     <div class="tablecup">
         <h2>Квартири</h2>
-        <a class="btn btn-dark" href="/apartments/new">Добавити квартиру</a>
+        <a class="btn btn-dark" href="/apartments/new">Додати квартиру</a>
         <div class="float-right">
             <input class="searchbar" type="text" name="owner" placeholder="Власник" value="<%= searchOptions.owner %>">
             <button class="btn" type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
@@ -45,16 +45,14 @@
                         <%}) %></td>
                     <td><%= apa.phoneNumber %></td>
 
-                    <td><% apa.services.forEach(serv => {%>
-                        <%= serv %> <br>
-                        <%}) %></td>
+                    <td>-</td>
 
                     <td><% apa.residents.forEach(res => {%>
                         <%= res %> <br>
                         <%}) %></td>
-                    <td><a class="float-right text-dark" href="/apartments/<%= apa.id %> "><i class="fa fa-pencil-square-o"
+                    <td><a class="float-right text-success" href="/apartments/<%= apa.id %> "><i class="fa fa-pencil-square-o"
                                 aria-hidden="true"></i></a></td>
-                    <td><a class="text-dark float-right" href="/apartments/<%= apa.id %>/del"><i
+                    <td><a class="text-danger float-right" href="/apartments/<%= apa.id %>/del"><i
                                 class="fa fa-minus-square-o" aria-hidden="true"></i>
                         </a></td>
                 </tr>

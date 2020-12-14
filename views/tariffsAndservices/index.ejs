@@ -1,8 +1,32 @@
 <form action="/tariffsAndservices" method="GET">
     <div class="tablecup">
-        <h2>Тарифр та послуги</h2>
+        <h2>Тарифи та послуги</h2>
+        <a class="btn btn-dark" href="/tariffsAndservices/new">Додати тарифу</a>
     </div>
-    <br>
-    <%- include('_form_fields') %>
-    <a class="btn btn-dark" href="/tariffsAndservices/edit" type="submit">Редагувати</a>
+<br>
+<div>
+    <table class="table tablec table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Послуга</th>
+            <th scope="col">Вартість</th>
+            <th></th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tas.forEach(tass => { %>
+                <tr>
+                    <td ><%= tass.name %> </td>
+                    <td ><%= tass.cost %> грн</th>
+                    
+                    
+                    <td><a class="text-success float-right" href="/tariffsAndservices/<%= tass.id %> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                    <td><a  class="text-danger  float-right" href="/tariffsAndservices/<%= tass.id %>/del"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a></td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
+</div>
 </form>
+

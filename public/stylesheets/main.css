@@ -244,6 +244,7 @@ nav {
 user-select:none;
   position: -webkit-sticky; /* Safari */
   position: sticky;
+  z-index: 2;
 }
 
 nav ul,nav li {
@@ -308,6 +309,9 @@ height: 100%;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
+#tinymce{
+  
+}
 
 .searchbar{
   border-radius: 10px;

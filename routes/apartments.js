@@ -1,5 +1,6 @@
 const express = require('express')
 const Apartments = require('../models/apartments')
+const Residents = require('../models/residents')
 const router = express.Router()
 const splitStr = require('../middleware/split');
 
@@ -19,8 +20,9 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/new', (req, res) => {
-    res.render('apartments/new', {apartments: new Apartments()})
+router.get('/new', async (req, res) => {
+    const data = await Residents.find({});
+    res.render('apartments/new', {apartments: new Apartments(), residents: data})
 })
 
 router.post('/', async (req, res) => {
@@ -57,15 +59,14 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/update', async (req, res) =>{
-  let str = req.body.residents
-  let residents = []
-  str.toString()
-  let resi = splitStr(str, ',');
-  console.log(resi);
-  resi.forEach(file => {
+  // let str = req.body.residents
+  // console.log(str);
+  // let residents = []
+  // str.toString()
+  // str.forEach(file => {
       
-      residents.push(file)
-  });
+  //     residents.push(file)
+  // });
     let id = req.body.id
     await Apartments.findOneAndUpdate({_id: id},{
         owner: req.body.owner,
@@ -75,14 +76,15 @@ router.post('/update', async (req, res) =>{
         benefits: req.body.benefits,
         phoneNumber: req.body.phoneNumber,
         services: req.body.services,
-        residents: residents
+        residents: req.body.residents
     })
     res.redirect('/apartments')
 })
 
 router.get('/:id', async (req, res) => {
     const data = await Apartments.findById(req.params.id)
-   res.render('apartments/edit', {apartments: data})
+    const residents = await Residents.find({})
+   res.render('apartments/edit', {apartments: data, residents: residents})
 })
 
 router.get('/:id/del', async(req,res) => {
